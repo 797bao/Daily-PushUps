@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+</head>
+<body>
+    <script>
+        function getPSTDate() {
+            const date = new Date();
+            const pstDate = new Date(date.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
+            return pstDate;
+        }
+
+        function redirect() {
+            const baseUrl = 'https://www.youtube.com/watch?v=_hYjCdgF6vQ&list=PLjPMzoSAZGQKb8vwFtXaquq2SAYI2GTo2&index=';
+            const pstDate = getPSTDate();
+            const dayOfMonth = pstDate.getDate();
+            window.location.href = baseUrl + dayOfMonth;
+        }
+
+        // Execute redirect immediately
+        redirect();
+    </script>
+</body>
+</html>
