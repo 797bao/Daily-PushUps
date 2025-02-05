@@ -12,14 +12,13 @@
             const pstDate = new Date(date.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
             return pstDate;
         }
-
         function redirect() {
-            const baseUrl = 'https://www.youtube.com/watch?v=_hYjCdgF6vQ&list=PLjPMzoSAZGQKb8vwFtXaquq2SAYI2GTo2&index=';
+            const baseUrl = 'https://www.youtube.com/watch?v=1&list=PLjPMzoSAZGQKb8vwFtXaquq2SAYI2GTo2&index=';
             const pstDate = getPSTDate();
-            const dayOfMonth = pstDate.getDate();
-            window.location.href = baseUrl + dayOfMonth;
+            const startDate = new Date('2025-02-01T00:00:00-08:00'); // PST timezone
+            const daysElapsed = Math.floor((pstDate - startDate) / (1000 * 60 * 60 * 24));
+            window.location.href = baseUrl + daysElapsed;
         }
-
         // Execute redirect immediately
         redirect();
     </script>
